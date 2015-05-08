@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}
+SHOWMAP
+{% endblock %}
+
+{% block container %}
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>SHOWMAP MAIN</h3>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-5 text-right "><button class="btn btn-lg btn-warning">-</button></div>
+        <div class="col-xs-2 text-center">
+            <button class="btn btn-lg btn-info"  onclick="click_up()">^</button>
+        </div>
+        <div class="col-xs-5 text-left"><button class="btn btn-lg btn-warning">+</button></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <button class="btn btn-lg btn-info" onclick="click_left()"> < </button>
+                <img src="data:image/jpeg;base64,{{ map_base64 }}" id="mapimg">
+            <button class="btn btn-lg btn-info" onclick="click_right()"> > </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <button class="btn btn-lg btn-info" onclick="click_down()">v</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8 text-center">
+            {{ debug.wms }}
+        </div>
+        <div class="col-md-2">
+            <input type="text" disabled="true" value="2106604" id="long_min">
+            <input type="text" disabled="true" value="7116593" id="lat_min">
+
+        </div>
+    </div>
+
+{% endblock %}
