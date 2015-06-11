@@ -1,6 +1,24 @@
 /**
  * Created by mysteq on 2015-05-08.
  */
+
+$(document).ready(function() {
+  $('img').click(function(e) {
+    var offset = $(this).offset();
+      var x = parseInt(e.pageX - offset.left);
+      var y = parseInt(e.pageY - offset.top);
+    $("#click-x").val(x);
+    var long = (parseFloat(x/512))*parseFloat($('#geo_diff').val()) +parseFloat($('#long_min').val());
+      console.log(parseInt(long));
+
+    $("#click-x-long").val(parseInt(long));
+    var lat = (parseFloat(y/512))*parseFloat($('#geo_diff').val()) +parseFloat($('#lat_min').val());
+    $("#click-y").val(y);
+    $("#click-y-lat").val(parseInt(lat));
+    //alert(e.pageX - offset.left);
+    //alert(e.pageY - offset.top);
+  });
+});
 var zoom_step = 1000;
 //var geo_diff = 1000;
 //var long_min = 2106604;
